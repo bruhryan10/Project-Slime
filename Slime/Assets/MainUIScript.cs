@@ -27,28 +27,28 @@ public class MainUIScript : MonoBehaviour
     {
         if (MainUI.enabled == true)
         {
-            frozenTimer.text = "You are not\ncold/freezing!";
+            frozenTimer.text = "Status: Warm\nYou are not\ncold/freezing!";
             if (coldScript.startSlowTimer == true)
             {
                 //Debug.Log("start cold timer ui");
-                frozenTimer.text = "Time until \nCold: " + coldScript.coldTimer.ToString("n2");
+                frozenTimer.text = "Status: Chilly\nTime until \nCold: " + coldScript.coldTimer.ToString("n2");
                 //setting the written text + time until cold + n2 is limiting number length so it isnt 1.923456823567823785
             }
-            if (coldScript.coldTimer != 10)
+            if (coldScript.regenColdTimer == true)
             {
                 //Debug.Log("end cold timer ui");
-                frozenTimer.text = "Time until \nCold: " + coldScript.coldTimer.ToString("n2");
+                frozenTimer.text = "Status: Chilly\nTime until \nWarm: " + coldScript.coldTimer.ToString("n2");
                 //setting the written text + time until cold is regened
             }
             if (coldScript.startDeathTimer == true)
             {
                 Debug.Log("start death timer ui");
-                frozenTimer.text = "Time until \nFrozen: " + coldScript.freezeTimer.ToString("n2");
+                frozenTimer.text = "Status: Cold\nTime until \nFrozen: " + coldScript.freezeTimer.ToString("n2");
             }
-            if (coldScript.freezeTimer != 20)
+            if (coldScript.regenFreezeTimer == true)
             {
                 Debug.Log("start death timer ui");
-                frozenTimer.text = "Time until \nFrozen: " + coldScript.freezeTimer.ToString("n2");
+                frozenTimer.text = "Status: Cold\nTime until \nChilly: " + coldScript.freezeTimer.ToString("n2");
             }
         }
 

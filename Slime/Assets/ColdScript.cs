@@ -10,7 +10,11 @@ public class ColdScript : MonoBehaviour
     public bool slowedMovement;
     public float coldTimer = 10f;
     public float freezeTimer = 20f;
-    public bool regenColdTimers;
+    public bool regenTimers;
+    public bool regenColdTimer;
+    public bool regenFreezeTimer;
+    public float regenSpeed = 0;
+
 
     void Start()
     {
@@ -36,18 +40,24 @@ public class ColdScript : MonoBehaviour
             {
                 startDeathTimer = false;
                 Debug.Log("Freeze timer is up! you are dead");
+                //death code is run here
             }
         }
-        if (regenColdTimers == true)
+        if (regenTimers == true)
         {
-            freezeTimer += Time.deltaTime;
+            regenFreezeTimer = true;
+            regenSpeed = Time.deltaTime * 2f;
+            freezeTimer += regenSpeed;
             if (freezeTimer > 20)
             {
-                coldTimer += Time.deltaTime;
+                regenFreezeTimer = false;
+                regenColdTimer = true;
+                coldTimer += regenSpeed;
                 freezeTimer = 20f;
                 if (coldTimer > 10)
                 {
-                    regenColdTimers = false;
+                    regenColdTimer = false;
+                    regenTimers = false;
                     coldTimer = 10f;
                 }
             }
@@ -57,11 +67,12 @@ public class ColdScript : MonoBehaviour
 
     public void startFreeze()
     {
+        regenTimers = false;
         startSlowTimer = true;
     }
     public void endFreeze()
     {
-        regenColdTimers = true;
+        regenTimers = true;
         slowedMovement = false;
         startSlowTimer = false;
         startDeathTimer = false;
@@ -74,7 +85,6 @@ public class ColdScript : MonoBehaviour
         //when player with the player tag enters the collider object with the tag frozen
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Frozen")
         {
-            regenColdTimers = false;
             startFreeze();
             Debug.Log("enter");
         }

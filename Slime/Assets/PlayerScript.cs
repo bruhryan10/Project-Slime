@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -58,6 +59,11 @@ public class PlayerScript : MonoBehaviour
         if (coldScript.slowedMovement == false)
         {
             playerSpeed = 4;
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            SceneManager.LoadScene("Labratory");
         }
     }
 }
