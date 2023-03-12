@@ -6,11 +6,13 @@ public class PlayerScript : MonoBehaviour
 {
     Vector3 Velocity;
     public float playerSpeed = 4;
+    ColdScript coldScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
     }
 
     // Update is called once per frame
@@ -46,5 +48,16 @@ public class PlayerScript : MonoBehaviour
         Velocity *= playerSpeed;
 
         transform.position += Velocity * Time.deltaTime;
+
+
+
+        if (coldScript.slowedMovement == true)
+        {
+            playerSpeed = 2;
+        }
+        if (coldScript.slowedMovement == false)
+        {
+            playerSpeed = 4;
+        }
     }
 }
