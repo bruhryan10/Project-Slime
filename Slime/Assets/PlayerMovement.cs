@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidBody2D;
 
     private Vector3 moveDir;
 
-    private const float move_speed = 20f;
+    public float moveSpeed = 4f;
+    ColdScript coldScript;
 
     private void Awake()
     {
-        rigidbody2D= GetComponent<Rigidbody2D>();
+        coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
+        rigidBody2D= GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         float moveX = 0f;
         float moveY = 0f;
 
@@ -39,10 +42,19 @@ public class PlayerMovement : MonoBehaviour
         }
         
         moveDir = new Vector3(moveX, moveY).normalized;
+
+        if (coldScript.slowedMovement == true)
+        {
+            moveSpeed = 2;
+        }
+        if (coldScript.slowedMovement == false)
+        {
+            moveSpeed = 4;
+        }
     }
 
     private void FixedUpdate()
     {
-        rigidbody2D.velocity = moveDir * move_speed;
+        rigidBody2D.velocity = moveDir * moveSpeed;
     }
 }

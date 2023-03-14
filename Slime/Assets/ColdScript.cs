@@ -52,6 +52,7 @@ public class ColdScript : MonoBehaviour
             {
                 regenFreezeTimer = false;
                 regenColdTimer = true;
+                slowedMovement = false;
                 coldTimer += regenSpeed;
                 freezeTimer = 20f;
                 if (coldTimer > 10)
@@ -68,13 +69,14 @@ public class ColdScript : MonoBehaviour
     public void startFreeze()
     {
         regenTimers = false;
+        regenFreezeTimer = false;
+        regenColdTimer = false;
         startSlowTimer = true;
     }
     public void endFreeze()
     {
-        regenTimers = true;
-        slowedMovement = false;
         startSlowTimer = false;
+        regenTimers = true;
         startDeathTimer = false;
         //Debug.Log("this code has run");
     }
