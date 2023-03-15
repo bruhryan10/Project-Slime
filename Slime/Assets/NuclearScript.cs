@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NuclearScript : MonoBehaviour
 {
-    public bool WasteDamage;
+    public bool wasteDamage;
     PlayerScript playerScript;
     public float damageTimer = 10f;
 
@@ -15,7 +15,7 @@ public class NuclearScript : MonoBehaviour
 
     void Update()
     {
-        if (WasteDamage == true)
+        if (wasteDamage == true)
         {
             damageTimer -= Time.deltaTime;
             if (damageTimer < 0)
@@ -36,11 +36,11 @@ public class NuclearScript : MonoBehaviour
 
     public void startDamage()
     {
-        WasteDamage = true;
+        wasteDamage = true;
     }
     public void endDamage()
     {
-        WasteDamage = false;
+        wasteDamage = false;
     }
 
     

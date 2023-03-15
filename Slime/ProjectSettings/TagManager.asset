@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Frozen
   - Waste
+  - Item
+  - Deposit
   layers:
   - Default
   - TransparentFX

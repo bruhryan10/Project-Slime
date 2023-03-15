@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidBody2D;
+    public Rigidbody2D rigidBody2D;
 
-    private Vector3 moveDir;
+    public Vector3 moveDir;
 
     public float moveSpeed = 4f;
     ColdScript coldScript;
+    PlayerScript playerScript;
+
 
     private void Awake()
     {
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
         rigidBody2D= GetComponent<Rigidbody2D>();
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     private void Update()
@@ -48,6 +51,14 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 2;
         }
         if (coldScript.slowedMovement == false)
+        {
+            moveSpeed = 4;
+        }
+        if (playerScript.lightStatus == true)
+        {
+            moveSpeed = 10;
+        }
+        if (playerScript.lightStatus == false)
         {
             moveSpeed = 4;
         }
