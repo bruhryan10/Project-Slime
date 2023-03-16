@@ -8,75 +8,153 @@ using TMPro;
 public class StatusUI : MonoBehaviour
 {
     public Canvas StatusUIs;
-    public GameObject normalStatus;
-    public GameObject chillyStatus;
+    public Canvas NormalStatus;
+    public Canvas chillyStatus;
+    public Canvas frozenStatus;
+    public Canvas wasteStatus;
+    public Canvas lightStatus;
+    public Canvas heavyStatus;
     public TMP_Text currentStatus;
     public TMP_Text statusDesc;
     public TMP_Text chillyTimer;
+    public TMP_Text frozenTimer;
+    public TMP_Text wasteTimer;
+    public TMP_Text lightTimer;
+
+
     ColdScript coldScript;
     NuclearScript nuclearScript;
     PlayerScript playerScript;
+    PauseUI pauseUI;
 
     void Start()
     {
         StatusUIs.enabled = true;
+        NormalStatus.enabled = false;
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>(); 
         nuclearScript = GameObject.Find("Nuclear Waste Area").GetComponent<NuclearScript>();
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
-        normalStatus.SetActive(false);
-        chillyStatus.SetActive(false);
+        pauseUI = GameObject.Find("PauseUI").GetComponent<PauseUI>();
+        NormalStatus.enabled = false;
+        chillyStatus.enabled = false;
+        frozenStatus.enabled = false;
+        wasteStatus.enabled = false;
+        lightStatus.enabled = false;
+        heavyStatus.enabled = false;
     }
 
     void Update()
     {
+        if (pauseUI.paused == true)
+        {
+            StatusUIs.enabled = false;
+        }
+        if (pauseUI.paused == false)
+        {
+            StatusUIs.enabled = true;
+        }
+
         if (StatusUIs.enabled == true)
         {
-            normalStatus.SetActive(true);
-            chillyStatus.SetActive(false);
-            //currentStatus.text = "Status: Normal";
-            //statusDesc.text = "You feel normal";
+            NormalStatus.enabled = true;
+            chillyStatus.enabled = false;
+            frozenStatus.enabled = false;
+            wasteStatus.enabled = false;
+            lightStatus.enabled = false;
+            heavyStatus.enabled = false;
+            if (playerScript.heavyStatus == true)
+            {
+                heavyStatus.enabled = true;
+            }
             if (coldScript.startSlowTimer == true)
             {
-                normalStatus.SetActive(false);
-                chillyStatus.SetActive(true);
-                //Debug.Log("start cold timer ui");
-                //currentStatus.text = "Status: Chilly";
-                chillyTimer.text = "Go inside to warm up!\nTime until cold: " + coldScript.coldTimer.ToString("n2");
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = true;
+                frozenStatus.enabled = false;
+                wasteStatus.enabled = false;
+                lightStatus.enabled = false;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                chillyTimer.text = "Go inside to warm up\nTime until cold: " + coldScript.coldTimer.ToString("n2");
             }
-            //if (coldScript.regenColdTimer == true)
-            //{
-            //    //Debug.Log("end cold timer ui");
-            //    currentStatus.text = "Status: Chilly";
-            //    statusDesc.text = "Stay inside to warm up!\nTime until warm: " + coldScript.coldTimer.ToString("n2");
-            //}
-            //if (coldScript.startDeathTimer == true)
-            //{
-            //    //Debug.Log("start death timer ui");
-            //    currentStatus.text = "Status: COLD";
-            //    statusDesc.text = "Debuff - Slowness\nTime until frozen: " + coldScript.freezeTimer.ToString("n2");
-            //}
-            //if (coldScript.regenFreezeTimer == true)
-            //{
-            //    //Debug.Log("start death timer ui");
-            //    currentStatus.text = "Status: COLD";
-            //    statusDesc.text = "Debuff - Slowness\nTime until chilly: " + coldScript.freezeTimer.ToString("n2");
-            //}
-            //if (nuclearScript.wasteDamage == true)
-            //{
-            //    //Debug.Log("start waste damage ui");
-            //    currentStatus.text = "Status: HOT";
-            //    statusDesc.text = "Debuff - Damage over time\nTime until damage: " + nuclearScript.damageTimer.ToString("n2");
-            //}
-            //if (playerScript.lightStatus == true)
-            //{
-            //    currentStatus.text = "Status: Light";
-            //    statusDesc.text = "Buff - Bonus movement speed\nfor " + playerScript.lightTimer.ToString("n2") + " seconds!";
-            //}
-            //if (playerScript.heavyStatus == true)
-            //{
-            //    currentStatus.text = "Status: Heavy";
-            //    statusDesc.text = "Debuff - Can't attack\nDeposit the part to be lighter!";
-            //}
+            if (coldScript.regenColdTimer == true)
+            {
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = true;
+                frozenStatus.enabled = false;
+                wasteStatus.enabled = false;
+                lightStatus.enabled = false;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                chillyTimer.text = "Stay inside to warm up\nTime until warm: " + coldScript.coldTimer.ToString("n2");
+            }
+            if (coldScript.startDeathTimer == true)
+            {
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = false;
+                frozenStatus.enabled = true;
+                wasteStatus.enabled = false;
+                lightStatus.enabled = false;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                frozenTimer.text = "Debuff - Slowness\nTime until frozen: " + coldScript.freezeTimer.ToString("n2");
+            }
+            if (coldScript.regenFreezeTimer == true)
+            {
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = false;
+                frozenStatus.enabled = true;
+                wasteStatus.enabled = false;
+                lightStatus.enabled = false;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                frozenTimer.text = "Debuff - Slowness\nTime until chilly: " + coldScript.freezeTimer.ToString("n2");
+            }
+            if (nuclearScript.wasteDamage == true)
+            {
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = false;
+                frozenStatus.enabled = false;
+                wasteStatus.enabled = true;
+                lightStatus.enabled = false;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                wasteTimer.text = "Debuff - Damage over time\nTime until damage: " + nuclearScript.damageTimer.ToString("n2");
+            }
+            if (playerScript.lightStatus == true)
+            {
+                NormalStatus.enabled = false;
+                chillyStatus.enabled = false;
+                frozenStatus.enabled = false;
+                wasteStatus.enabled = false;
+                lightStatus.enabled = true;
+                heavyStatus.enabled = false;
+                if (playerScript.heavyStatus == true)
+                {
+                    heavyStatus.enabled = true;
+                }
+                lightTimer.text = "Buff - Quicker movement\nfor " + playerScript.lightTimer.ToString("n2") + " seconds!";
+            }
+            if (playerScript.heavyStatus == true)
+            {
+                heavyStatus.enabled = true;
+
+            }
         }
         
     }
