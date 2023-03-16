@@ -8,7 +8,11 @@ using TMPro;
 public class StatusUI : MonoBehaviour
 {
     public Canvas StatusUIs;
-    public TMP_Text frozenTimer;
+    public GameObject normalStatus;
+    public GameObject chillyStatus;
+    public TMP_Text currentStatus;
+    public TMP_Text statusDesc;
+    public TMP_Text chillyTimer;
     ColdScript coldScript;
     NuclearScript nuclearScript;
     PlayerScript playerScript;
@@ -19,46 +23,60 @@ public class StatusUI : MonoBehaviour
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>(); 
         nuclearScript = GameObject.Find("Nuclear Waste Area").GetComponent<NuclearScript>();
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+        normalStatus.SetActive(false);
+        chillyStatus.SetActive(false);
     }
 
     void Update()
     {
         if (StatusUIs.enabled == true)
         {
-            frozenTimer.text = "Status: Warm";
+            normalStatus.SetActive(true);
+            chillyStatus.SetActive(false);
+            //currentStatus.text = "Status: Normal";
+            //statusDesc.text = "You feel normal";
             if (coldScript.startSlowTimer == true)
             {
+                normalStatus.SetActive(false);
+                chillyStatus.SetActive(true);
                 //Debug.Log("start cold timer ui");
-                frozenTimer.text = "Status: Chilly\nTime until \nCold: " + coldScript.coldTimer.ToString("n2");
+                //currentStatus.text = "Status: Chilly";
+                chillyTimer.text = "Go inside to warm up!\nTime until cold: " + coldScript.coldTimer.ToString("n2");
             }
-            if (coldScript.regenColdTimer == true)
-            {
-                //Debug.Log("end cold timer ui");
-                frozenTimer.text = "Status: Chilly\nTime until \nWarm: " + coldScript.coldTimer.ToString("n2");
-            }
-            if (coldScript.startDeathTimer == true)
-            {
-                //Debug.Log("start death timer ui");
-                frozenTimer.text = "Status: Cold\nTime until \nFrozen: " + coldScript.freezeTimer.ToString("n2");
-            }
-            if (coldScript.regenFreezeTimer == true)
-            {
-                //Debug.Log("start death timer ui");
-                frozenTimer.text = "Status: Cold\nTime until \nChilly: " + coldScript.freezeTimer.ToString("n2");
-            }
-            if (nuclearScript.wasteDamage == true)
-            {
-                //Debug.Log("start waste damage ui");
-                frozenTimer.text = "Status: Hot\nTime until \nDamage: " + nuclearScript.damageTimer.ToString("n2");
-            }
-            if (playerScript.lightStatus == true)
-            {
-                frozenTimer.text = "Status: Light\nMove quicker \nFor: " + playerScript.lightTimer.ToString("n2");
-            }
-            if (playerScript.heavyStatus == true)
-            {
-                frozenTimer.text = "Status: Heavy\nSome debuff\nText here";
-            }
+            //if (coldScript.regenColdTimer == true)
+            //{
+            //    //Debug.Log("end cold timer ui");
+            //    currentStatus.text = "Status: Chilly";
+            //    statusDesc.text = "Stay inside to warm up!\nTime until warm: " + coldScript.coldTimer.ToString("n2");
+            //}
+            //if (coldScript.startDeathTimer == true)
+            //{
+            //    //Debug.Log("start death timer ui");
+            //    currentStatus.text = "Status: COLD";
+            //    statusDesc.text = "Debuff - Slowness\nTime until frozen: " + coldScript.freezeTimer.ToString("n2");
+            //}
+            //if (coldScript.regenFreezeTimer == true)
+            //{
+            //    //Debug.Log("start death timer ui");
+            //    currentStatus.text = "Status: COLD";
+            //    statusDesc.text = "Debuff - Slowness\nTime until chilly: " + coldScript.freezeTimer.ToString("n2");
+            //}
+            //if (nuclearScript.wasteDamage == true)
+            //{
+            //    //Debug.Log("start waste damage ui");
+            //    currentStatus.text = "Status: HOT";
+            //    statusDesc.text = "Debuff - Damage over time\nTime until damage: " + nuclearScript.damageTimer.ToString("n2");
+            //}
+            //if (playerScript.lightStatus == true)
+            //{
+            //    currentStatus.text = "Status: Light";
+            //    statusDesc.text = "Buff - Bonus movement speed\nfor " + playerScript.lightTimer.ToString("n2") + " seconds!";
+            //}
+            //if (playerScript.heavyStatus == true)
+            //{
+            //    currentStatus.text = "Status: Heavy";
+            //    statusDesc.text = "Debuff - Can't attack\nDeposit the part to be lighter!";
+            //}
         }
         
     }
