@@ -18,14 +18,44 @@ public class PickupObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true)
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part1")
         {
-            playerScript.hasItem();
+            playerScript.hasItem1();
+            Debug.Log("you picked up item");
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part2")
+        {
+            playerScript.hasItem2();
+            Debug.Log("you picked up item");
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part3")
+        {
+            playerScript.hasItem3();
+            Debug.Log("you picked up item");
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part4")
+        {
+            playerScript.hasItem4();
+            Debug.Log("you picked up item");
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part5")
+        {
+            playerScript.hasItem5();
+            Debug.Log("you picked up item");
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.M) && canPickupItem == true && playerScript.carryingItem != true && this.gameObject.name == "Part6")
+        {
+            playerScript.hasItem6();
             Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
 
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
