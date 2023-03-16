@@ -38323,6 +38323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f44f88aaffba04bb6c2bd5adf7917b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainUI: {fileID: 0}
+  currentHealth: {fileID: 0}
+  attackTimer: {fileID: 0}
+  textBelow: {fileID: 0}
 --- !u!1 &716556583
 GameObject:
   m_ObjectHideFlags: 0
@@ -54461,7 +54465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580918262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: 0.36913818, z: 0}
+  m_LocalPosition: {x: 1.747, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54834,7 +54838,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatusUIs: {fileID: 1864037708}
+  NormalStatus: {fileID: 0}
+  chillyStatus: {fileID: 0}
+  frozenStatus: {fileID: 0}
+  wasteStatus: {fileID: 0}
+  lightStatus: {fileID: 0}
+  heavyStatus: {fileID: 0}
+  currentStatus: {fileID: 0}
+  statusDesc: {fileID: 0}
+  chillyTimer: {fileID: 0}
   frozenTimer: {fileID: 1620994621}
+  wasteTimer: {fileID: 0}
+  lightTimer: {fileID: 0}
 --- !u!114 &1864037706
 MonoBehaviour:
   m_ObjectHideFlags: 0
