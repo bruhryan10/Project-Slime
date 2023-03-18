@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public bool carryingItem5;
     public bool carryingItem6;
 
+    public bool carryingKey;
     public float lightTimer = 5f;
 
 

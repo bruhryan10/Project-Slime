@@ -6,9 +6,12 @@ TagManager:
   tags:
   - Frozen
   - Waste
-  - Item
   - Deposit
-  - Part1
+  - StairsDown
+  - StairsUp
+  - Part
+  - Crowbar
+  - Key
   layers:
   - Default
   - TransparentFX
