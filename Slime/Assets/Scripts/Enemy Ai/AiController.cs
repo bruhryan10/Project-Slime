@@ -10,6 +10,8 @@ public class AiController : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isFollowing = false;
 
+
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -43,6 +45,9 @@ public class AiController : MonoBehaviour
             target = null;
         }
     }
+
+
+   
 
     void OnDrawGizmosSelected()
     {
