@@ -13,6 +13,8 @@ TagManager:
   - Crowbar
   - Key
   - Item
+  - KeyCard
+  - Friend
   layers:
   - Default
   - TransparentFX

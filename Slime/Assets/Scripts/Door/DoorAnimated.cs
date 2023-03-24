@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorAnimated : MonoBehaviour
 {
     private Animator animator;
+    public GameObject doorCollision;
 
     private void Awake()
     {
@@ -13,10 +14,13 @@ public class DoorAnimated : MonoBehaviour
     public void OpenDoor()
     {
         animator.SetBool("Open", true);
+        doorCollision.SetActive(false);
     }
 
     public void CloseDoor()
     {
         animator.SetBool("Open", false);
+        doorCollision.SetActive(true);
+
     }
 }

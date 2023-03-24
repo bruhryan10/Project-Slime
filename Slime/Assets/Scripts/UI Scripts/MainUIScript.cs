@@ -14,6 +14,8 @@ public class MainUIScript : MonoBehaviour
     public TMP_Text textBelow;
     public TMP_Text Key;
     public TMP_Text NoItems;
+    public TMP_Text KeyCard;
+    public TMP_Text Crowbar;
     PlayerScript playerScript;
     PauseUI pauseUI;
 
@@ -23,6 +25,8 @@ public class MainUIScript : MonoBehaviour
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         pauseUI = GameObject.Find("PauseUI").GetComponent<PauseUI>();
         Key.enabled = false;
+        KeyCard.enabled = false;
+        Crowbar.enabled = false;
     }
 
     void Update()
@@ -37,6 +41,16 @@ public class MainUIScript : MonoBehaviour
             {
                 NoItems.enabled = false;
                 Key.enabled = true;
+            }
+            if (playerScript.carryingKeyCard == true)
+            {
+                NoItems.enabled = false;
+                KeyCard.enabled = true;
+            }
+            if (playerScript.carryingCrowbar == true)
+            {
+                NoItems.enabled = false;
+                Crowbar.enabled = true;
             }
         }
         if (pauseUI.paused == true)

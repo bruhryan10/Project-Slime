@@ -7,6 +7,9 @@ public class PickupObject : MonoBehaviour
     public bool canPickupPart;
     public bool heavyStatus;
     public bool canPickupKey;
+    public bool canPickupFriend;
+    public bool canPickupKeyCard;
+    public bool canPickupCrowbar;
     PlayerMovement playerMovement;
     PlayerScript playerScript;
     void Start()
@@ -19,45 +22,54 @@ public class PickupObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) && canPickupKey == true)
+        if (Input.GetKeyDown(KeyCode.M) && canPickupKey == true)
         {
             playerScript.carryingKey = true;
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.M) && canPickupCrowbar == true)
+        {
+            playerScript.carryingCrowbar = true;
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.M) && canPickupKeyCard == true)
+        {
+            playerScript.carryingKeyCard = true;
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.M) && canPickupFriend == true)
+        {
+            playerScript.PlayerHealth += 1;
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part1")
         {
             playerScript.hasItem1();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part2")
         {
             playerScript.hasItem2();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part3")
         {
             playerScript.hasItem3();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part4")
         {
             playerScript.hasItem4();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part5")
         {
             playerScript.hasItem5();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
         if (Input.GetKey(KeyCode.M) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part6")
         {
             playerScript.hasItem6();
-            Debug.Log("you picked up item");
             gameObject.SetActive(false);
         }
 
@@ -68,43 +80,46 @@ public class PickupObject : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part")
         {
-            canPickupParts();
-            Debug.Log("enter object");
+            canPickupPart = true;
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Key")
         {
-            canPickupKeys();
-            Debug.Log("enter object");
+            canPickupKey = true;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "KeyCard")
+        {
+            canPickupKeyCard = true;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crowbar")
+        {
+            canPickupCrowbar = true;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Friend")
+        {
+            canPickupFriend = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part")
         {
-            cantPickupPart();
-            Debug.Log("leave object");
+            canPickupPart = false;
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Key")
         {
-            cantPickupKeys();
-            Debug.Log("enter object");
+            canPickupKey = false;
         }
-    }
-    public void canPickupParts()
-    {
-        canPickupPart = true;
-
-    }
-    public void cantPickupPart()
-    {
-        canPickupPart = false;
-    }
-    public void canPickupKeys()
-    {
-        canPickupKey = true;
-    }
-    public void cantPickupKeys()
-    {
-        canPickupKey = false;
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Friend")
+        {
+            canPickupFriend = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "KeyCard")
+        {
+            canPickupKeyCard = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crowbar")
+        {
+            canPickupCrowbar = false;
+        }
     }
 }

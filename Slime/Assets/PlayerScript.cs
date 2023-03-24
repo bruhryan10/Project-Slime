@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     ColdScript coldScript;
+    public LayerMask wall;
     public float PlayerHealth = 10f;
     public bool heavyStatus;
     public bool lightStatus;
@@ -18,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     public bool carryingItem6;
 
     public bool carryingKey;
+    public bool carryingCrowbar;
+    public bool carryingKeyCard;
     public float lightTimer = 5f;
 
 
@@ -41,15 +44,15 @@ public class PlayerScript : MonoBehaviour
         {
             //cant attack or whatever debuff code goes here
         }
+        if (PlayerHealth <= 0)
+        {
+            //death code here
+        }
     }
 
     public void minusHealth()
     {
         PlayerHealth -= 1f;
-    }
-    public void playerDeath()
-    {
-
     }
     public void hasItem1()
     {
