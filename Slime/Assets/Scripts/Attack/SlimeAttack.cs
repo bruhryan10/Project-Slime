@@ -62,4 +62,7 @@ public class SlimeAttack : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
+
+   
+   
 }

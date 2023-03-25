@@ -4606,7 +4606,7 @@ GameObject:
   - component: {fileID: 716556592}
   m_Layer: 0
   m_Name: Enemy Ai
-  m_TagString: Untagged
+  m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4693,6 +4693,12 @@ MonoBehaviour:
   moveSpeed: 2
   detectionRange: 3
   target: {fileID: 1580918265}
+  Wall:
+    serializedVersion: 2
+    m_Bits: 0
+  MaxHealth: 100
+  StoppingDistance: 0
+  RetreatDistance: 0
 --- !u!50 &716556591
 Rigidbody2D:
   serializedVersion: 4
