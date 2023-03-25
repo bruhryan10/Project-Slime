@@ -10,7 +10,7 @@ public class AiController : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isFollowing = false;
 
-
+    public GameObject player;
 
 
     void Start()
@@ -57,10 +57,19 @@ public class AiController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
-    
-    
-   
 
 
-   
+   private void Update()
+    {
+        Vector3 scale =transform.localScale;
+        if (player.transform.position.x > transform.position.x)
+            scale.x = Mathf.Abs(scale.x) * -1;
+        else
+        {
+            scale.x = Mathf.Abs(scale.x);
+        }
+    }
+
+
+
 }
