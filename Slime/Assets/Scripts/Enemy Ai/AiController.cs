@@ -11,16 +11,8 @@ public class AiController : MonoBehaviour
     private bool isFollowing = false;
 
 
-    public LayerMask Wall;
-    public int MaxHealth = 100;
-    int currentHealth;
 
 
-
-
-
-    public float StoppingDistance;
-    public float RetreatDistance;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();

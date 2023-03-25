@@ -63,6 +63,15 @@ public class SlimeAttack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
 
-   
-   
+
+    void Attacking()
+    {
+        Collider2D[] slime = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemyLayers);
+
+        foreach (Collider2D enemyGameObject in slime)
+        {
+            Debug.Log("Hit enemy");
+            enemyGameObject.GetComponent<EnemyHealth>().health -= damage;
+        }
+    }
 }

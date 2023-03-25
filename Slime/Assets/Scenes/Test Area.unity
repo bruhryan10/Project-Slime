@@ -4604,7 +4604,8 @@ GameObject:
   - component: {fileID: 716556590}
   - component: {fileID: 716556591}
   - component: {fileID: 716556592}
-  m_Layer: 0
+  - component: {fileID: 716556593}
+  m_Layer: 8
   m_Name: Enemy Ai
   m_TagString: Slime
   m_Icon: {fileID: 0}
@@ -4693,12 +4694,6 @@ MonoBehaviour:
   moveSpeed: 2
   detectionRange: 3
   target: {fileID: 1580918265}
-  Wall:
-    serializedVersion: 2
-    m_Bits: 0
-  MaxHealth: 100
-  StoppingDistance: 0
-  RetreatDistance: 0
 --- !u!50 &716556591
 Rigidbody2D:
   serializedVersion: 4
@@ -4736,6 +4731,26 @@ CircleCollider2D:
   m_Offset: {x: -0.009988308, y: 0}
   serializedVersion: 2
   m_Radius: 2.9760318
+--- !u!114 &716556593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716556583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff0bf9acd70f824889d20c73b7ad77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0, z: 0}
+  MoveSpeed: 0
+  CheckDistance: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 0
+  MaxHealth: 100
+  health: 50
 --- !u!1 &757460254
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,8 +5731,8 @@ MonoBehaviour:
   attackRange: 2.42
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
-  damage: 5
+    m_Bits: 256
+  damage: 25
 --- !u!1 &970462421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7188,7 +7203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218503052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9177074, y: 3.1762266, z: -3.9618084}
+  m_LocalPosition: {x: 6.72, y: 3.32, z: -3.9618084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12396,7 +12411,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014679339, y: 0}
+  m_Offset: {x: -0.0007014312, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12407,7 +12422,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.07945202, y: 1}
+  m_Size: {x: 0.14453194, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1620123068
 SpriteRenderer:
@@ -12469,8 +12484,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620123066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9264, y: 4.001, z: -3.969789}
-  m_LocalScale: {x: 1.1778988, y: 2.0006614, z: 1}
+  m_LocalPosition: {x: 6.86, y: 4, z: -3.969789}
+  m_LocalScale: {x: 2.3966706, y: 2.0006614, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12508,7 +12523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d352a4a851289f045a554e1ff29326d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorCollision: {fileID: 0}
 --- !u!1 &1620994620
 GameObject:
   m_ObjectHideFlags: 0
