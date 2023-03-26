@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     PlayerScript playerScript;
 
 
+    public Animator playerAnim;
+
     private void Awake()
     {
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
