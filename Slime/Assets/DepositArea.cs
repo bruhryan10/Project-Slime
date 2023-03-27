@@ -12,6 +12,7 @@ public class DepositArea : MonoBehaviour
     public GameObject partPickup4;
     public GameObject partPickup5;
     public GameObject partPickup6;
+    public float depNumber;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem1 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem2 == true)
         {
@@ -35,6 +37,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem2 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem3 == true)
         {
@@ -43,6 +46,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem3 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem4 == true)
         {
@@ -51,6 +55,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem4 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem5 == true)
         {
@@ -59,6 +64,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem5 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem6 == true)
         {
@@ -67,6 +73,7 @@ public class DepositArea : MonoBehaviour
             playerScript.lightStatusEffect();
             playerScript.carryingItem6 = false;
             playerScript.carryingItem = false;
+            depNumber += 1;
         }
 
     }

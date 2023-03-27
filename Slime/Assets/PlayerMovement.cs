@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (playerScript.lightStatus == true)
         {
-            moveSpeed = 8f;
+            moveSpeed = 12f;
         }
         if (playerScript.lightStatus == false && coldScript.slowedMovement == false)
         {

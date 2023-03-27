@@ -10,20 +10,20 @@ public class MainUIScript : MonoBehaviour
 
     public Canvas mainUI;
     public TMP_Text currentHealth;
-    public TMP_Text attackTimer;
-    public TMP_Text textBelow;
     public TMP_Text Key;
     public TMP_Text NoItems;
     public TMP_Text KeyCard;
     public TMP_Text Crowbar;
     PlayerScript playerScript;
     PauseUI pauseUI;
+    WinScript winScript;
 
     void Start()
     {
         mainUI.enabled = true;
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         pauseUI = GameObject.Find("PauseUI").GetComponent<PauseUI>();
+        winScript = GameObject.Find("WinUI").GetComponent<WinScript>();
         Key.enabled = false;
         KeyCard.enabled = false;
         Crowbar.enabled = false;
@@ -33,9 +33,7 @@ public class MainUIScript : MonoBehaviour
     {
         if (mainUI.enabled == true)
         {
-            currentHealth.text = "Health: " + playerScript.PlayerHealth + "HP";
-            attackTimer.text = "Attack Cooldown: 10.11";
-            textBelow.text = "Extra Placeholder Text";
+            currentHealth.text = "HP: " + playerScript.PlayerHealth;
             
             if (playerScript.carryingKey == true)
             {
@@ -62,6 +60,10 @@ public class MainUIScript : MonoBehaviour
             mainUI.enabled = true;
         }
         if (playerScript.isDead == true)
+        {
+            mainUI.enabled = false;
+        }
+        if (winScript.win == true)
         {
             mainUI.enabled = false;
         }

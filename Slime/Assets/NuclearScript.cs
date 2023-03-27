@@ -6,7 +6,7 @@ public class NuclearScript : MonoBehaviour
 {
     public bool wasteDamage;
     PlayerScript playerScript;
-    public float damageTimer = 10f;
+    public float damageTimer = 1f;
 
     void Start()
     {
@@ -21,14 +21,9 @@ public class NuclearScript : MonoBehaviour
             if (damageTimer < 0)
             {
                 playerScript.minusHealth();
-                damageTimer = 10f;
+                damageTimer = 1f;
             }
-            if (playerScript.PlayerHealth == 0)
-            {
-                //run death code here
-                Debug.Log("you died");
-            }
-            Debug.Log("taking damage");
+            //Debug.Log("taking damage");
         }
     }
 

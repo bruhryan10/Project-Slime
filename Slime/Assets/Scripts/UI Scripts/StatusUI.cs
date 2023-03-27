@@ -26,6 +26,7 @@ public class StatusUI : MonoBehaviour
     NuclearScript nuclearScript;
     PlayerScript playerScript;
     PauseUI pauseUI;
+    WinScript winScript;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class StatusUI : MonoBehaviour
         nuclearScript = GameObject.Find("Nuclear Waste Area").GetComponent<NuclearScript>();
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         pauseUI = GameObject.Find("PauseUI").GetComponent<PauseUI>();
+        winScript = GameObject.Find("WinUI").GetComponent<WinScript>();
         NormalStatus.enabled = false;
         chillyStatus.enabled = false;
         frozenStatus.enabled = false;
@@ -54,6 +56,10 @@ public class StatusUI : MonoBehaviour
             StatusUIs.enabled = true;
         }
         if (playerScript.isDead == true)
+        {
+            StatusUIs.enabled = false;
+        }
+        if (winScript.win == true)
         {
             StatusUIs.enabled = false;
         }

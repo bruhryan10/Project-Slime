@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     public bool carryingKey;
     public bool carryingCrowbar;
     public bool carryingKeyCard;
-    public float lightTimer = 5f;
+    public float lightTimer = 10f;
 
 
     void Start()
@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
             if (lightTimer < 0)
             {
                 lightStatus = false;
-                lightTimer = 5f;
+                lightTimer = 10f;
             }
         }
         if (PlayerHealth <= 0)
