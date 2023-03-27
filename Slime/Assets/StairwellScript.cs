@@ -20,13 +20,13 @@ public class StairwellScript : MonoBehaviour
         {
             float x = Player.transform.position.x;
             float y = Player.transform.position.y;
-            Player.transform.position = new Vector2(x, y + -25);
+            Player.transform.position = new Vector2(x, y + -103);
         }
         if (canGoUpStairs == true && Input.GetKeyDown(KeyCode.L))
         {
             float x = Player.transform.position.x;
             float y = Player.transform.position.y;
-            Player.transform.position = new Vector2(x, y + 25);
+            Player.transform.position = new Vector2(x, y + 103);
         }
 
     }

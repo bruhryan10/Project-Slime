@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     public bool carryingItem5;
     public bool carryingItem6;
 
+    public bool isDead;
     public bool carryingKey;
     public bool carryingCrowbar;
     public bool carryingKeyCard;
@@ -40,13 +41,9 @@ public class PlayerScript : MonoBehaviour
                 lightTimer = 5f;
             }
         }
-        if (heavyStatus == true)
-        {
-            //cant attack or whatever debuff code goes here
-        }
         if (PlayerHealth <= 0)
         {
-            //death code here
+            isDead = true;
         }
     }
 

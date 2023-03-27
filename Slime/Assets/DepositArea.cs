@@ -22,45 +22,51 @@ public class DepositArea : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem1 == true)
         {
-            Instantiate(partPickup).transform.position = new Vector3(-10, -2.5f);
+            Instantiate(partPickup).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem1 = false;
+            playerScript.carryingItem = false;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem2 == true)
         {
-            Instantiate(partPickup2).transform.position = new Vector3(-9, -2.5f);
+            Instantiate(partPickup2).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem2 = false;
+            playerScript.carryingItem = false;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem3 == true)
         {
-            Instantiate(partPickup3).transform.position = new Vector3(-10, -1.5f);
+            Instantiate(partPickup3).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem3 = false;
+            playerScript.carryingItem = false;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem4 == true)
         {
-            Instantiate(partPickup4).transform.position = new Vector3(-9, -1.5f);
+            Instantiate(partPickup4).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem4 = false;
+            playerScript.carryingItem = false;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem5 == true)
         {
-            Instantiate(partPickup5).transform.position = new Vector3(-10, -0.5f);
+            Instantiate(partPickup5).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem5 = false;
+            playerScript.carryingItem = false;
         }
         if (Input.GetKeyDown(KeyCode.M) && canDepositItem == true && playerScript.carryingItem6 == true)
         {
-            Instantiate(partPickup6).transform.position = new Vector3(-9, -0.5f);
+            Instantiate(partPickup6).transform.position = new Vector3(-49.5f, 40.5f);
             playerScript.heavyStatus = false;
             playerScript.lightStatusEffect();
             playerScript.carryingItem6 = false;
+            playerScript.carryingItem = false;
         }
 
     }

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 moveDir;
 
-    public float moveSpeed = 4f;
+    public float moveSpeed = 6.5f;
     ColdScript coldScript;
     PlayerScript playerScript;
 
@@ -50,19 +50,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (coldScript.slowedMovement == true)
         {
-            moveSpeed = 2;
+            moveSpeed = 5f;
         }
         if (coldScript.slowedMovement == false)
         {
-            moveSpeed = 4;
+            moveSpeed = 6.5f;
         }
         if (playerScript.lightStatus == true)
         {
-            moveSpeed = 10;
+            moveSpeed = 8f;
         }
-        if (playerScript.lightStatus == false)
+        if (playerScript.lightStatus == false && coldScript.slowedMovement == false)
         {
-            moveSpeed = 4;
+            moveSpeed = 6.5f;
         }
     }
 

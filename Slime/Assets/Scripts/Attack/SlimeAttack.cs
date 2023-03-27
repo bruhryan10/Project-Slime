@@ -10,6 +10,7 @@ public class SlimeAttack : MonoBehaviour
     bool Sword_Attack;
     public float timer;
     private bool attack;
+    PlayerScript playerScript;
 
 
 
@@ -21,12 +22,13 @@ public class SlimeAttack : MonoBehaviour
 
     void Start()
     {
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
 
     }
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerScript.heavyStatus == false)
         {
             weaponAnim.SetBool("Sword_Attack", true);
         }

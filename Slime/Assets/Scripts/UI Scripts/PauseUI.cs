@@ -10,14 +10,16 @@ public class PauseUI : MonoBehaviour
     public Canvas PauseMenuUI;
     public bool paused = false;
     public bool pausedMovement;
+    PlayerScript playerScript;
     void Start()
     {
         PauseMenuUI.enabled = false;
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && playerScript.isDead == false)
         {
             if (paused == true)
             {
@@ -28,13 +30,13 @@ public class PauseUI : MonoBehaviour
                 pauseGame();
             }
         }
-        if (paused == true && Input.GetKeyDown(KeyCode.O))
+        if (paused == true && Input.GetKeyDown(KeyCode.B))
         {
-            SceneManager.LoadScene("Test Area");
+            SceneManager.LoadScene("Labratory");
             resumeGame();
 
         }
-        if (paused == true && Input.GetKeyDown(KeyCode.P))
+        if (paused == true && Input.GetKeyDown(KeyCode.Z))
         {
             Application.Quit();
         }

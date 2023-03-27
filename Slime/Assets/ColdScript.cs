@@ -8,8 +8,8 @@ public class ColdScript : MonoBehaviour
     public bool startSlowTimer;
     public bool startDeathTimer;
     public bool slowedMovement;
-    public float coldTimer = 10f;
-    public float freezeTimer = 20f;
+    public float coldTimer = 20f;
+    public float freezeTimer = 40f;
     public bool regenTimers;
     public bool regenColdTimer;
     public bool regenFreezeTimer;
@@ -46,20 +46,20 @@ public class ColdScript : MonoBehaviour
         if (regenTimers == true)
         {
             regenFreezeTimer = true;
-            regenSpeed = Time.deltaTime * 2f;
+            regenSpeed = Time.deltaTime * 3f;
             freezeTimer += regenSpeed;
-            if (freezeTimer > 20)
+            if (freezeTimer > 40)
             {
                 regenFreezeTimer = false;
                 regenColdTimer = true;
                 slowedMovement = false;
                 coldTimer += regenSpeed;
-                freezeTimer = 20f;
-                if (coldTimer > 10)
+                freezeTimer = 40f;
+                if (coldTimer > 20)
                 {
                     regenColdTimer = false;
                     regenTimers = false;
-                    coldTimer = 10f;
+                    coldTimer = 20f;
                 }
             }
         }

@@ -53,6 +53,10 @@ public class StatusUI : MonoBehaviour
         {
             StatusUIs.enabled = true;
         }
+        if (playerScript.isDead == true)
+        {
+            StatusUIs.enabled = false;
+        }
 
         if (StatusUIs.enabled == true)
         {

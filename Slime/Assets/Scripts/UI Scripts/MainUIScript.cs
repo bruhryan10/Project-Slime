@@ -61,5 +61,9 @@ public class MainUIScript : MonoBehaviour
         {
             mainUI.enabled = true;
         }
+        if (playerScript.isDead == true)
+        {
+            mainUI.enabled = false;
+        }
     }
 }
