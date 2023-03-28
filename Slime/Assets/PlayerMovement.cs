@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator playerAnim;
 
+    Vector3 Velocity;
+
     private void Awake()
     {
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
@@ -29,23 +31,34 @@ public class PlayerMovement : MonoBehaviour
         float moveX = 0f;
         float moveY = 0f;
 
+        Velocity = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            moveY = +1f;
+            playerAnim.Play("Move_Up");
+            Velocity += Vector3.up;
         }
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
-            moveY = -1f;
+            playerAnim.Play("Move_Down");
+            Velocity += Vector3.down;
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.D))
         {
-            moveX = -1f;
+            playerAnim.Play("Move_Right");
+            Velocity += Vector3.right;
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.A))
         {
-            moveX = +1f;
+            playerAnim.Play("Move_Left");
+            Velocity += Vector3.left;
         }
-        
+
+        Velocity *= moveSpeed;
+
+        transform.position += Velocity * Time.deltaTime;
+
+
+
         moveDir = new Vector3(moveX, moveY).normalized;
 
         if (coldScript.slowedMovement == true)
