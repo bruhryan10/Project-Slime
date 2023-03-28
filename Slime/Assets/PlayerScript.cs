@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             isDead = true;
-            playerAnim.Play("Death");
+           
         }
     }
 
@@ -95,5 +95,23 @@ public class PlayerScript : MonoBehaviour
     {
         lightStatus = true;
 
+    }
+
+   
+    
+    public void TakeDamage(int damageAmount)
+    {
+        PlayerHealth -= damageAmount;
+
+        if (PlayerHealth <= 0)
+        {
+           Die();
+        }
+    }
+
+    private void Die()
+    {
+
+        isDead = true;
     }
 }

@@ -12,6 +12,7 @@ public class Patrol : MonoBehaviour
     private int currentSpotIndex;
     private float waitTimer;
 
+    public int damageAmount = 9;
     void Start()
     {
         currentSpotIndex = 0;
@@ -38,6 +39,21 @@ public class Patrol : MonoBehaviour
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, currentSpot.position, speed * Time.deltaTime);
+        }
+    }
+
+
+    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerScript playerScript = collision.gameObject.GetComponent<PlayerScript>();
+            if (playerScript != null)
+            {
+                playerScript.TakeDamage(damageAmount);
+            }
         }
     }
 }
