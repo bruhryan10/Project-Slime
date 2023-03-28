@@ -27,6 +27,7 @@ TagManager:
   - Part6
   - Crate
   - TheCrate
+  - Door
   layers:
   - Default
   - TransparentFX

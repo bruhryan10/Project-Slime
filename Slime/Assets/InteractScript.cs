@@ -35,12 +35,12 @@ public class InteractScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Locker")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Locker" && playerScript.carryingKey == true)
         {
             interactUI.enabled = true;
             canOpenLocker = true;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "TheLocker")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "TheLocker" && playerScript.carryingKey == true)
         {
             interactUI.enabled = true;
             canOpenPart = true;

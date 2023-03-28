@@ -12,10 +12,13 @@ public class InteractCrate : MonoBehaviour
     public GameObject OpenCrate;
     public bool canOpenTheCrate;
     public GameObject PartDrop;
+    PlayerScript playerScript;
 
     void Start()
     {
         interactUI.enabled = false;
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+
 
     }
 
@@ -35,12 +38,12 @@ public class InteractCrate : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crate")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crate" && playerScript.carryingCrowbar == true)
         {
             interactUI.enabled = true;
             canOpenCrate = true;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "TheCrate")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "TheCrate" && playerScript.carryingCrowbar == true)
         {
             interactUI.enabled = true;
             canOpenTheCrate = true;
