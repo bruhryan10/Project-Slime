@@ -13,10 +13,14 @@ public class EnemyHealth : MonoBehaviour
     int currentHealth;
     public float health;
     public Vector3 lastLoc;
+
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = MaxHealth;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

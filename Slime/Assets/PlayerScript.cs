@@ -25,6 +25,8 @@ public class PlayerScript : MonoBehaviour
     public float lightTimer = 10f;
 
 
+
+    public Animator playerAnim;
     void Start()
     {
         coldScript = GameObject.Find("Frozen Area").GetComponent<ColdScript>();
@@ -44,12 +46,14 @@ public class PlayerScript : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             isDead = true;
+            playerAnim.Play("Death");
         }
     }
 
     public void minusHealth()
     {
         PlayerHealth -= 1f;
+       
     }
     public void hasItem1()
     {
