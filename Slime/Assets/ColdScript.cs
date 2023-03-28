@@ -14,10 +14,12 @@ public class ColdScript : MonoBehaviour
     public bool regenColdTimer;
     public bool regenFreezeTimer;
     public float regenSpeed = 0;
-
+    PlayerScript playerScript;
 
     void Start()
     {
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+
     }
 
     void Update()
@@ -40,7 +42,7 @@ public class ColdScript : MonoBehaviour
             {
                 startDeathTimer = false;
                 Debug.Log("Freeze timer is up! you are dead");
-                //death code is run here
+                playerScript.PlayerHealth = 0;
             }
         }
         if (regenTimers == true)

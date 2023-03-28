@@ -18,7 +18,7 @@ public class DoorTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && door.doorIsOpen == false)
+        if (Input.GetKeyDown(KeyCode.O) && door.doorIsOpen == false)
         {
             door.OpenDoor();
         }
