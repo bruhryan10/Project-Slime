@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour
     public int MaxHealth = 100;
     int currentHealth;
     public float health;
-
+    public Vector3 lastLoc;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,9 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        float x = transform.position.x;
+        float y = transform.position.y;
+        lastLoc = new Vector3(x, y);
 
     }
 }

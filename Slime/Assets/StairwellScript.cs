@@ -1,32 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using TMPro;
 
 public class StairwellScript : MonoBehaviour
 {
-
+    public Canvas interactUI;
     public bool canGoDownStairs;
     public bool canGoUpStairs;
     public GameObject Player;
     void Start()
     {
-        
+        interactUI.enabled = false;
     }
 
     void Update()
     {
 
-        if (canGoDownStairs == true && Input.GetKeyDown(KeyCode.L))
+        if (canGoDownStairs == true && Input.GetKeyDown(KeyCode.F))
         {
             float x = Player.transform.position.x;
             float y = Player.transform.position.y;
-            Player.transform.position = new Vector2(x, y + -103);
+            Player.transform.position = new Vector2(x, y + -104);
         }
-        if (canGoUpStairs == true && Input.GetKeyDown(KeyCode.L))
+        if (canGoUpStairs == true && Input.GetKeyDown(KeyCode.F))
         {
             float x = Player.transform.position.x;
             float y = Player.transform.position.y;
-            Player.transform.position = new Vector2(x, y + 103);
+            Player.transform.position = new Vector2(x, y + 104);
         }
 
     }
@@ -52,13 +55,13 @@ public class StairwellScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "StairsDown")
         {
+            interactUI.enabled = true;
             canGoDown();
-            //Debug.Log("can go down");
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "StairsUp")
         {
+            interactUI.enabled = true;
             canGoUp();
-            //Debug.Log("can go up");
         }
     }
 
@@ -66,13 +69,13 @@ public class StairwellScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "StairsDown")
         {
+            interactUI.enabled = false;
             cantGoDown();
-            //Debug.Log("cant go down");
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "StairsUp")
         {
+            interactUI.enabled = false;
             cantGoUp();
-            //Debug.Log("cant go up");
         }
     }
 }

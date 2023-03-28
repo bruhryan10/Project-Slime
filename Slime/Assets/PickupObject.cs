@@ -47,32 +47,32 @@ public class PickupObject : MonoBehaviour
             playerScript.PlayerHealth += 1;
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part1")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part1")
         {
             playerScript.hasItem1();
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part2")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part2")
         {
             playerScript.hasItem2();
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part3")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part3")
         {
             playerScript.hasItem3();
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part4")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part4")
         {
             playerScript.hasItem4();
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part5")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part5")
         {
             playerScript.hasItem5();
             gameObject.SetActive(false);
         }
-        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.name == "Part6")
+        if (Input.GetKey(KeyCode.F) && canPickupPart == true && playerScript.carryingItem != true && this.gameObject.tag == "Part6")
         {
             playerScript.hasItem6();
             gameObject.SetActive(false);
@@ -83,25 +83,35 @@ public class PickupObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part1")
         {
             interactUI.enabled = true;
             canPickupPart = true;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Key")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part2")
         {
             interactUI.enabled = true;
-            canPickupKey = true;
+            canPickupPart = true;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "KeyCard")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part3")
         {
             interactUI.enabled = true;
-            canPickupKeyCard = true;
+            canPickupPart = true;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crowbar")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part4")
         {
             interactUI.enabled = true;
-            canPickupCrowbar = true;
+            canPickupPart = true;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part5")
+        {
+            interactUI.enabled = true;
+            canPickupPart = true;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part6")
+        {
+            interactUI.enabled = true;
+            canPickupPart = true;
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Friend")
         {
@@ -112,29 +122,39 @@ public class PickupObject : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part1")
         {
             canPickupPart = false;
             interactUI.enabled = false;
         }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Key")
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part2")
         {
-            canPickupKey = false;
+            canPickupPart = false;
+            interactUI.enabled = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part3")
+        {
+            canPickupPart = false;
+            interactUI.enabled = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part4")
+        {
+            canPickupPart = false;
+            interactUI.enabled = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part5")
+        {
+            canPickupPart = false;
+            interactUI.enabled = false;
+        }
+        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Part6")
+        {
+            canPickupPart = false;
             interactUI.enabled = false;
         }
         if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Friend")
         {
             canPickupFriend = false;
-            interactUI.enabled = false;
-        }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "KeyCard")
-        {
-            canPickupKeyCard = false;
-            interactUI.enabled = false;
-        }
-        if (collision.gameObject.tag == "Player" && this.gameObject.tag == "Crowbar")
-        {
-            canPickupCrowbar = false;
             interactUI.enabled = false;
         }
     }
