@@ -3,14 +3,14 @@ First Two week spring in Tech 1
 
 Credits for the game:
 
-Ryan Barabas - Programmer, Level Designer, UI Designer
+Ryan - Programmer, Level Designer, UI Designer
 
-Dustin Dang - Programmer, Designer, Artist
+Dustin - Programmer, Designer, Artist
 
-Colton Rich - Designer, Artist
+Colton - Designer, Artist
 
-Sophia Mai Nugwynne - Character Artist
+Sophia - Character Artist
 
-Jacob Amezcua - Character Artist
+Jacob - Character Artist
 
-Max Varon - Artist
+Max - Artist
